@@ -1,0 +1,94 @@
+.mobileMainScreen {
+  background-color: #ff8800;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.mobileMainScreenContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.mobileMainScreen__rulesContainer {
+  max-width: 500px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+}
+.mobileMainScreen__rules {
+  display: none;
+}
+.mobileMainScreen__rules:hover {
+  color: #ff8800;
+}
+.mobileMainScreen__content {
+  display: flex;
+  width: 70%;
+  max-width: 450px;
+  justify-content: center;
+  flex-direction: column;
+}
+.mobileMainScreen__appNameContainer {
+  font-size: 44px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.mobileMainScreen__appName {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+.mobileMainScreen__buttonsContainer {
+  display: flex;
+  flex-direction: column;
+}
+.mobileMainScreen__customeButton {
+  width: 100%;
+  padding: 16px;
+  font-size: 14px;
+  color: #000000;
+  border-radius: 10px;
+  background-color: #ffffff;
+  outline: none;
+  border: none;
+  margin-bottom: 0.6rem;
+}
+.mobileMainScreen__upperPartSpliter {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.mobileMainScreen__horizentalLine {
+  border-bottom: 1px solid #ffffff;
+  flex: 0.5;
+}
+
+@media (min-width: 600px) {
+  .mobileMainScreen {
+    background-color: #ffffff;
+  }
+  .mobileMainScreen__content {
+    height: 60vh;
+    padding: 2rem;
+    background-color: #ff8800;
+    align-items: center;
+    box-shadow: 0 0 14px #696161;
+  }
+  .mobileMainScreen__buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  .mobileMainScreen__rules {
+    display: inline;
+    margin-bottom: 1.4rem;
+    text-decoration: none;
+    color: #000000;
+  }
+}

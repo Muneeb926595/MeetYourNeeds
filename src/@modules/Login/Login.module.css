@@ -1,0 +1,115 @@
+.login {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  background-color: #ffffff;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login__content {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+}
+.login__appNameContainer {
+  font-size: 44px;
+  font-weight: 700;
+  color: #ff8800;
+}
+.login__appName {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+.login__customInputField {
+  border: none;
+  outline: none;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  width: 100%;
+  color: #000000;
+  border: 1px solid #dbdbdb;
+}
+.login__customInputField:focus {
+  border: 1px solid #ff8800;
+}
+.login__customInputField::placeholder {
+  color: #cccaca;
+}
+
+.login__loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login__customeButton {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: #ff8800;
+  outline: none;
+  border: none;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.login__customeButton > p {
+  margin: 0;
+}
+.login__customeButton > img {
+  margin-right: 0.4rem;
+}
+.login__forgotPassword {
+  align-self: flex-start;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0;
+  color: #cccaca;
+  margin-top: 0.2rem;
+  margin-bottom: 1.5rem;
+}
+.loginpage__spliter {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.login__horizentalLine {
+  border-bottom: 1px solid #dddcdc;
+  flex: 0.5;
+}
+.login__signUpLink {
+  align-self: flex-start;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0 auto;
+  color: rgb(83, 79, 79);
+}
+.login__signUpLink > p {
+  margin-top: 0;
+}
+.login__signupLinkText {
+  text-decoration: none;
+  color: #0077ff;
+  font-weight: 600;
+}
+
+@media (min-width: 600px) {
+  .login {
+    margin-top: 6rem;
+    box-shadow: 0 0 20px #dbdbdb;
+  }
+}
+@media (max-width: 600px) {
+  .login {
+    height: 100vh;
+  }
+}

@@ -1,0 +1,107 @@
+.signup {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  background-color: #ffffff;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup__content {
+  display: flex;
+  width: 70%;
+  flex-direction: column;
+}
+.signup__appNameContainer {
+  font-size: 44px;
+  font-weight: 700;
+  color: #ff8800;
+}
+.signup__appName {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+.signup__customInputField {
+  border: none;
+  outline: none;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  width: 100%;
+  color: #000000;
+  border: 1px solid #dbdbdb;
+}
+.signup__customInputField:focus {
+  border: 1px solid #ff8800;
+}
+.signup__customInputField::placeholder {
+  color: #cccaca;
+}
+.signup__signupForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup__customeButton {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: #ff8800;
+  outline: none;
+  border: none;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.signup__customeButton > p {
+  margin: 0;
+}
+.signup__customeButton > img {
+  margin-right: 0.4rem;
+}
+.signuppage__spliter {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.signup__horizentalLine {
+  border-bottom: 1px solid #dddcdc;
+  flex: 0.5;
+}
+.signup__loginLink {
+  align-self: flex-start;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0;
+  margin: 0 auto;
+  color: rgb(83, 79, 79);
+  margin-top: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+.signup__loginLinkText {
+  text-decoration: none;
+  color: #0077ff;
+  font-weight: 600;
+}
+
+@media (min-width: 600px) {
+  .signup {
+    margin-top: 6rem;
+    box-shadow: 0 0 20px #dbdbdb;
+  }
+}
+
+@media (max-width: 450px) {
+  .signup {
+    height: 100vh;
+    box-shadow: 0 0 20px #dbdbdb;
+  }
+}
