@@ -94,7 +94,7 @@ const Signup = (props) => {
                     );
 
                   function validatePassword() {
-                    if (password.value != confirm_password.value) {
+                    if (password.value !== confirm_password.value) {
                       confirm_password.setCustomValidity(
                         "Passwords Don't Match"
                       );

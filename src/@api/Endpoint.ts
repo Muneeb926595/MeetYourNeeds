@@ -12,3 +12,6 @@ export const getUserByIdUrl = (id) => {
 export const getAddProductUrl = () => {
   return encodeURI("product");
 };
+export const getProductsUrl = () => {
+  return encodeURI("product");
+};
