@@ -13,9 +13,9 @@ const AddProduct = ({ setShowModal }) => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState();
+  const [category] = useState();
   const [isDisable, setIsDisable] = useState(true);
-  const [difficulty, setDifficulty] = useState("1");
+  const [difficulty] = useState("1");
 
   useEffect(() => {
     if (description === "" || file === null) {

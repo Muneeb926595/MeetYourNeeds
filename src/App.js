@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
 import React from "react";
 import { Provider } from "react-redux";
 
@@ -15,7 +14,6 @@ import "./App.css";
 import { Dashboard } from "@material-ui/icons";
 
 function App() {
-  const dispatch = useDispatch();
   return (
     <Provider store={store}>
       <div className="App">

@@ -4,7 +4,7 @@ import userPlaceHolder from "../../assets/Images/userPlaceHolder.jpg";
 import postImage from "../../assets/Images/postImage.jpg";
 import classes from "./ProductItem.module.css";
 
-const ProductItem = () => {
+const ProductItem = ({ productTitle, productDescription, productImage }) => {
   return (
     <>
       <div className={classes.productItemContainer}>
@@ -23,6 +23,10 @@ const ProductItem = () => {
             </div>
           </div>
         </div>
+        <div className={classes.productItemContainer__productTitle}>
+          <p className={classes.productItemContainer__titleHeading}>Title:</p>
+          <p>{productTitle}</p>
+        </div>
         <div className={classes.productItemContainer__postImageContainer}>
           <img src={postImage} alt="PostImage" className={classes.postImage} />
         </div>
@@ -31,8 +35,11 @@ const ProductItem = () => {
           <div
             className={classes.productItemContainer__userProfileNameContainer}
           >
+            <p className={classes.textproductItemContainer__descriptionTitle}>
+              Descrption:
+            </p>
             <p className={classes.textproductItemContainer__postText}>
-              postDescription
+              {productDescription}
             </p>
           </div>
         </div>

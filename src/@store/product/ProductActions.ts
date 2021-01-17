@@ -1,4 +1,4 @@
-import { getAddProductUrl } from "../../@api/Endpoint";
+import { getAddProductUrl, getProductsUrl } from "../../@api/Endpoint";
 import { ProductActionTypes } from "../redux/actionTypes";
 import { axiosInstance as axios } from "../../@api/axios";
 import { Product } from "../../@models/Product";
@@ -10,7 +10,6 @@ export const addNewProduct = (product: Product) => {
     });
 
     const url = getAddProductUrl();
-    console.log("going to call with", url, product);
     let formData = new FormData();
     for (let key in product) {
       if (key === "imageFile" && product[key] != null) {
@@ -45,6 +44,44 @@ const createPostFail = (dispatch, errorMessage) => {
 const addNewProductuccess = (dispatch, data) => {
   dispatch({
     type: ProductActionTypes.CREATE_PRODUCT_SUCCESS,
+    payload: data,
+  });
+  dispatch(getProducts());
+};
+
+export const getProducts = () => {
+  return (dispatch) => {
+    dispatch({
+      type: ProductActionTypes.GET_PRODUCTS_START,
+    });
+    const url = getProductsUrl();
+    axios
+      .get(url)
+      .then((res) => {
+        let { data } = res;
+        if (data) {
+          getProductsSuccess(dispatch, data);
+        } else {
+          getProductsFail(dispatch, "There was an error connection");
+        }
+      })
+      .catch((error) => {
+        getProductsFail(dispatch, "There was an error connection2");
+      });
+  };
+};
+const getProductsFail = (dispatch, errorMessage) => {
+  console.log(errorMessage);
+  dispatch({
+    type: ProductActionTypes.GET_PRODUCTS_FAIL,
+    payload: {
+      errorMessage,
+    },
+  });
+};
+const getProductsSuccess = (dispatch, data) => {
+  dispatch({
+    type: ProductActionTypes.GET_PRODUCTS_SUCCESS,
     payload: data,
   });
 };

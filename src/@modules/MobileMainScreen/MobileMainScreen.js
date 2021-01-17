@@ -38,17 +38,6 @@ const MobileMainScreen = (props) => {
             </button>
           </div>
         </div>
-        <div className={classes.mobileMainScreen__rulesContainer}>
-          <a href="#" className={classes.mobileMainScreen__rules}>
-            Privacy Policy
-          </a>
-          <a href="#" className={classes.mobileMainScreen__rules}>
-            Terms And Conditions
-          </a>
-          <a href="#" className={classes.mobileMainScreen__rules}>
-            Contact Us
-          </a>
-        </div>
       </div>
     </div>
   );

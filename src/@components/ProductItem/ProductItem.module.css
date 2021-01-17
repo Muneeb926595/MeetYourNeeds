@@ -48,6 +48,15 @@
   font-weight: 400;
   color: #c2bcbc;
 }
+.productItemContainer__productTitle {
+  display: flex;
+}
+.productItemContainer__titleHeading {
+  margin-right: 1rem;
+  font-weight: 600;
+
+  color: grey;
+}
 .productItemContainer__postImageContainer {
   position: relative;
   padding-bottom: 92%;
@@ -71,9 +80,12 @@
 }
 .productItemContainer__userProfileNameContainer {
   display: flex;
-  flex-direction: column;
 }
-
+.textproductItemContainer__descriptionTitle {
+  font-weight: 600;
+  color: grey;
+  margin-right: 1rem;
+}
 @media (min-width: 600px) {
   .productItemContainer {
     width: 100%;
