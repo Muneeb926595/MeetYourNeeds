@@ -11,7 +11,6 @@ import Layout from "./@layouts/Layout";
 import store from "./@store";
 import Home from "./@modules/Home/Home";
 import "./App.css";
-import { Dashboard } from "@material-ui/icons";
 
 function App() {
   return (
@@ -26,7 +25,6 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Layout>
               <Route exact path="/home" component={Home} />
-              <Route exact path="/dashboard" component={Dashboard} />
             </Layout>
           </Switch>
         </Router>

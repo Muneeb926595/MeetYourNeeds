@@ -41,13 +41,6 @@ const Header = () => {
         >
           <p>Add Product</p>
         </div>
-        <NavLink
-          to="/dashboard"
-          activeClassName={classes.activeNavLink}
-          className={classes.NavigationLink}
-        >
-          <p>Admin</p>
-        </NavLink>
         <div
           className={classes.NavigationLink}
           onClick={() => {
