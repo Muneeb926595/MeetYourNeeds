@@ -43,7 +43,10 @@ const Home = () => {
               return (
                 <ProductItem
                   productDescription={singleProduct.description}
-                  productImage={singleProduct.image}
+                  productImage={
+                    "https://meet-your-needs-api.herokuapp.com/api/" +
+                    singleProduct.image
+                  }
                   productCategory={singleProduct.category}
                   productTitle={singleProduct.title}
                   userId={singleProduct.userId}

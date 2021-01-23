@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import classes from "./AddProduct.module.css";
+import MySelector from "../../@components/MySelector/MySelector";
 import RedCancel from "../../assets/Images/redCancel.svg";
 import { addNewProduct } from "../../@store/product/ProductActions";
 
@@ -13,7 +14,7 @@ const AddProduct = ({ setShowModal }) => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
-  const [category] = useState();
+  const [category, setCategory] = useState();
   const [isDisable, setIsDisable] = useState(true);
   const [difficulty] = useState("1");
 
@@ -72,7 +73,7 @@ const AddProduct = ({ setShowModal }) => {
             onChange={(e) => {
               setTitle(e.target.value);
             }}
-            placeholder="How can you feed your friends??"
+            placeholder="Name Of Product"
             className={classes.addPost__textarea}
             style={{ padding: "10px", paddingLeft: "20px" }}
           />
@@ -121,9 +122,10 @@ const AddProduct = ({ setShowModal }) => {
           <div className={classes.addPost__mySlider}>
             <div className={classes.addPost__mySelector}>
               <p>Category</p>
-              <div>{/* <MySelector /> */}</div>
+              <div>
+                <MySelector category={category} setCategory={setCategory} />
+              </div>
             </div>
-            <div style={{ marginTop: "20px" }}>{/* <MySlider /> */}</div>
           </div>
         </div>
 

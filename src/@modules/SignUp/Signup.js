@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import { submitRegister } from "../../@store/auth/AuthActions";
@@ -7,6 +8,7 @@ import CustomLoader from "../../@components/CustomeLoader/CustomeLoader";
 import classes from "./Signup.module.css";
 
 const Signup = (props) => {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [fullname, setFullName] = useState("");
   const [username, setUserName] = useState("");
@@ -21,9 +23,9 @@ const Signup = (props) => {
       localStorage.getItem("userId") &&
       localStorage.getItem("access_token")
     ) {
-      window.location.href = "/home";
+      history.push("/home");
     }
-  }, []);
+  }, [history]);
   return (
     <>
       <CustomLoader loading={userLoading}>
@@ -37,12 +39,15 @@ const Signup = (props) => {
               onSubmit={(event) => {
                 event.preventDefault();
                 dispatch(
-                  submitRegister({
-                    fullName: fullname,
-                    userName: username,
-                    email: email,
-                    password: password,
-                  })
+                  submitRegister(
+                    {
+                      fullName: fullname,
+                      userName: username,
+                      email: email,
+                      password: password,
+                    },
+                    history
+                  )
                 );
               }}
             >
