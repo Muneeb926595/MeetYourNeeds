@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import { Provider } from "react-redux";
 
-import MobileMainScreen from "./@modules/MobileMainScreen/MobileMainScreen";
+import MobileMainScreen from "./@modules/MainScreen/MainScreen";
 import Signup from "./@modules/SignUp/Signup";
 import Login from "./@modules/Login/Login";
 import Layout from "./@layouts/Layout";

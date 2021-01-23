@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,6 +9,7 @@ import classes from "./Login.module.css";
 
 const Login = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,9 +21,9 @@ const Login = (props) => {
       localStorage.getItem("userId") &&
       localStorage.getItem("access_token")
     ) {
-      window.location.href = "/home";
+      history.push("/home");
     }
-  }, []);
+  }, [history]);
   return (
     <>
       <CustomLoader loading={userLoading}>
@@ -35,7 +37,13 @@ const Login = (props) => {
               onSubmit={(event) => {
                 event.preventDefault();
                 dispatch(
-                  submitLogin({ userName: username, password: password })
+                  submitLogin(
+                    {
+                      userName: username,
+                      password: password,
+                    },
+                    history
+                  )
                 );
               }}
             >

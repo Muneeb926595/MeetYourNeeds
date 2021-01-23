@@ -9,7 +9,7 @@ import { axiosInstance as axios } from "../../@api/axios";
 import { AuthActionTypes } from "../redux/actionTypes";
 import { User } from "../../@models/User";
 
-export const submitLogin = (user: User) => {
+export const submitLogin = (user: User, history) => {
   return (dispatch) => {
     dispatch({
       type: AuthActionTypes.LOGIN_USER_START,
@@ -29,7 +29,7 @@ export const submitLogin = (user: User) => {
           data._id &&
           data._id !== "undefined"
         ) {
-          loginUserSuccess(dispatch, data);
+          loginUserSuccess(dispatch, data, history);
         } else {
           loginUserFail(dispatch, "There was an error connection");
         }
@@ -52,7 +52,7 @@ const loginUserFail = (dispatch, errorMessage) => {
     },
   });
 };
-const loginUserSuccess = (dispatch, data) => {
+const loginUserSuccess = (dispatch, data, history) => {
   axios.defaults.headers.common["Authorization"] = "Bearer " + data.accessToken;
   localStorage.setItem("access_token", data.accessToken);
   localStorage.setItem("userId", data._id);
@@ -60,10 +60,10 @@ const loginUserSuccess = (dispatch, data) => {
     type: AuthActionTypes.LOGIN_USER_SUCCESS,
     payload: data,
   });
-  window.location.href = "/home";
+  history.push("/home");
 };
 
-export const submitRegister = (user: User) => {
+export const submitRegister = (user: User, history) => {
   return (dispatch) => {
     dispatch({
       type: AuthActionTypes.CREATE_USER_START,
@@ -86,7 +86,7 @@ export const submitRegister = (user: User) => {
           data._id &&
           data._id !== "undefined"
         ) {
-          registerUserSuccess(dispatch, data);
+          registerUserSuccess(dispatch, data, history);
         } else {
           registerUserFail(dispatch, "There was an error connection");
         }
@@ -110,7 +110,7 @@ const registerUserFail = (dispatch, errorMessage) => {
     },
   });
 };
-const registerUserSuccess = (dispatch, data) => {
+const registerUserSuccess = (dispatch, data, history) => {
   axios.defaults.headers.common["Authorization"] = "Bearer " + data.accessToken;
   localStorage.setItem("access_token", data.accessToken);
   localStorage.setItem("userId", data._id);
@@ -119,7 +119,7 @@ const registerUserSuccess = (dispatch, data) => {
     payload: data,
   });
   localStorage.setItem("firstTime", "true");
-  window.location.href = "/home";
+  history.push("/home");
 };
 
 export const getUser = (id) => {

@@ -1,7 +1,6 @@
 import React from "react";
 
 import userPlaceHolder from "../../assets/Images/userPlaceHolder.jpg";
-import postImage from "../../assets/Images/postImage.jpg";
 import classes from "./ProductItem.module.css";
 
 const ProductItem = ({ productTitle, productDescription, productImage }) => {
@@ -28,7 +27,11 @@ const ProductItem = ({ productTitle, productDescription, productImage }) => {
           <p>{productTitle}</p>
         </div>
         <div className={classes.productItemContainer__postImageContainer}>
-          <img src={postImage} alt="PostImage" className={classes.postImage} />
+          <img
+            src={productImage}
+            alt="PostImage"
+            className={classes.postImage}
+          />
         </div>
 
         <div className={classes.productItemContainer__postBottom}>
