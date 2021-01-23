@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 
-import ProductItem from "../../@components/ProductItem/ProductItem";
 import { getProducts } from "../../@store/product/ProductActions";
 import Loader from "../../@components/Loader/Loader";
 import classes from "./Home.module.css";
+import ProductCard from "../../@components/ProductCard/ProductCard";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -39,16 +39,21 @@ const Home = () => {
         <div className={classes.homeContainer}>
           {productsData &&
             productsData.length > 0 &&
-            productsData.map((singleProduct) => {
+            productsData.map((singleProduct, index) => {
               return (
-                <ProductItem
+                <ProductCard
+                  index={index}
                   productDescription={singleProduct.description}
+                  // productImage={
+                  //   "http://localhost:3000/api/" + singleProduct.image
+                  // }
                   productImage={
                     "https://meet-your-needs-api.herokuapp.com/api/" +
                     singleProduct.image
                   }
                   productCategory={singleProduct.category}
                   productTitle={singleProduct.title}
+                  productPrice={singleProduct.price}
                   userId={singleProduct.userId}
                 />
               );

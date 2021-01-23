@@ -14,9 +14,9 @@ const AddProduct = ({ setShowModal }) => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState("Face");
+  const [price, setPrice] = useState("");
   const [isDisable, setIsDisable] = useState(true);
-  const [difficulty] = useState("1");
 
   useEffect(() => {
     if (description === "" || file === null) {
@@ -47,13 +47,13 @@ const AddProduct = ({ setShowModal }) => {
   const cancelUploadFile = () => {
     setFile(null);
   };
-  const addPost = (title, description, difficulty, category, file) => {
+  const addPost = (title, price, description, category, file) => {
     dispatch(
       addNewProduct({
         userId: localStorage.getItem("userId"),
         title: title,
+        price: price,
         description: description,
-        difficulty: difficulty,
         imageFile: file,
         category: category,
       })
@@ -80,6 +80,18 @@ const AddProduct = ({ setShowModal }) => {
           <CancelOutlinedIcon
             onClick={() => setShowModal(false)}
             className={classes.addPost__cancelModal}
+          />
+        </div>
+        <div className={classes.addPost__textareaContainer}>
+          <input
+            value={price}
+            type="number"
+            onChange={(e) => {
+              setPrice(e.target.value);
+            }}
+            placeholder="Price ??"
+            className={classes.addPost__textarea}
+            style={{ padding: "10px", paddingLeft: "20px" }}
           />
         </div>
         <div className={classes.addPost__textareaContainer}>
@@ -122,9 +134,7 @@ const AddProduct = ({ setShowModal }) => {
           <div className={classes.addPost__mySlider}>
             <div className={classes.addPost__mySelector}>
               <p>Category</p>
-              <div>
-                <MySelector category={category} setCategory={setCategory} />
-              </div>
+              <MySelector category={category} setCategory={setCategory} />
             </div>
           </div>
         </div>
@@ -160,7 +170,7 @@ const AddProduct = ({ setShowModal }) => {
               }`}
               onClick={(event) => {
                 event.preventDefault();
-                addPost(title, description, difficulty, category, file);
+                addPost(title, price, description, category, file);
                 setShowModal(false);
               }}
             >

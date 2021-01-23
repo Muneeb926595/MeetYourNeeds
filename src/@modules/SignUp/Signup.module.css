@@ -16,7 +16,7 @@
 .signup__appNameContainer {
   font-size: 44px;
   font-weight: 700;
-  color: #ff8800;
+  color: #007aff;
 }
 .signup__appName {
   display: flex;
@@ -34,7 +34,7 @@
   border: 1px solid #dbdbdb;
 }
 .signup__customInputField:focus {
-  border: 1px solid #ff8800;
+  border: 1px solid #007aff;
 }
 .signup__customInputField::placeholder {
   color: #cccaca;
@@ -51,7 +51,7 @@
   font-size: 15px;
   color: #ffffff;
   border-radius: 10px;
-  background-color: #ff8800;
+  background-color: #007aff;
   outline: none;
   border: none;
   margin-bottom: 0.2rem;

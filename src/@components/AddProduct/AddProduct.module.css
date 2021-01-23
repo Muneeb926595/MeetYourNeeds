@@ -114,9 +114,8 @@
   margin: 0 auto;
 }
 .addPost__mySelector {
-  margin-top: 20px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
 }
 .addPost__mySelector > p {
   font-weight: 600;
@@ -141,6 +140,7 @@
 }
 .addPost__addMediaContainer {
   max-width: 140px;
+  margin-right: 0.4rem;
   display: flex;
   justify-content: space-between;
 }
@@ -211,7 +211,7 @@
 .addPost__postbutton {
   width: 80%;
   padding: 8px 0px;
-  background-color: #ff8800;
+  background-color: #007aff;
   border: none;
   font-family: "Roboto", sans-serif;
   font-size: 20px;

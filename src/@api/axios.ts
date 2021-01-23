@@ -1,6 +1,7 @@
 import axios, { AxiosResponse, AxiosRequestConfig } from "axios";
 
 export const axiosInstance = axios.create({
+  // baseURL: "http://localhost:3000/api/",
   baseURL: "https://meet-your-needs-api.herokuapp.com/api/",
 });
 const ResponseInterceptor = (response: AxiosResponse) => {
