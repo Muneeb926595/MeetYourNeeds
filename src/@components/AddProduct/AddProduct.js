@@ -19,7 +19,7 @@ const AddProduct = ({ setShowModal }) => {
   const [isDisable, setIsDisable] = useState(true);
 
   useEffect(() => {
-    if (description === "" || file === null) {
+    if (description === "" || price === "" || file === null) {
       setIsDisable(true);
     } else {
       setIsDisable(false);
