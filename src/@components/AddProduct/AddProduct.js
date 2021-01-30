@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import classes from "./AddProduct.module.css";
 import MySelector from "../../@components/MySelector/MySelector";
 import RedCancel from "../../assets/Images/redCancel.svg";
+import { lighterImage, isImage } from "../../@helpers/imageCompression";
 import { addNewProduct } from "../../@store/product/ProductActions";
 
 const AddProduct = ({ setShowModal }) => {
@@ -47,7 +48,10 @@ const AddProduct = ({ setShowModal }) => {
   const cancelUploadFile = () => {
     setFile(null);
   };
-  const addPost = (title, price, description, category, file) => {
+  const addPost = async (title, price, description, category, file) => {
+    if (isImage(file.type)) {
+      file = await lighterImage(file);
+    }
     dispatch(
       addNewProduct({
         userId: localStorage.getItem("userId"),
