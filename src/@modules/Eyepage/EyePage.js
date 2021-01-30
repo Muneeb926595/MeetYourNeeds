@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 
-import { getProducts } from "../../@store/product/ProductActions";
+import { getProductsByCategory } from "../../@store/product/ProductActions";
 import Loader from "../../@components/Loader/Loader";
-import classes from "./Home.module.css";
+import classes from "./EyePage.module.css";
 import ProductCard from "../../@components/ProductCard/ProductCard";
 
-const Home = () => {
+function EyePage() {
   const dispatch = useDispatch();
   const productsData = useSelector(
     ({ MeedYourNeeds }) => MeedYourNeeds.product.products
@@ -16,7 +16,7 @@ const Home = () => {
   );
 
   useEffect(() => {
-    dispatch(getProducts());
+    dispatch(getProductsByCategory("Eye"));
   }, [dispatch]);
   return (
     <>
@@ -35,7 +35,7 @@ const Home = () => {
           <Loader />
         </div>
       ) : (
-        <div className={classes.homeContainer}>
+        <div className={classes.eyepageContainer}>
           {productsData &&
             productsData.length > 0 &&
             productsData.map((singleProduct, index) => {
@@ -61,6 +61,6 @@ const Home = () => {
       )}
     </>
   );
-};
+}
 
-export default Home;
+export default EyePage;

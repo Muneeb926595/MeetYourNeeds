@@ -63,5 +63,6 @@
 .productImage {
   border-radius: 16px;
   width: 100%;
+  max-height: 44vh;
   object-fit: cover;
 }

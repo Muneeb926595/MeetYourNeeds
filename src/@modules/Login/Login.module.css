@@ -14,7 +14,7 @@
   flex-direction: column;
 }
 .login__appNameContainer {
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 700;
   color: #007aff;
 }
@@ -110,6 +110,6 @@
 }
 @media (max-width: 600px) {
   .login {
-    height: 100vh;
+    min-height: 100vh;
   }
 }

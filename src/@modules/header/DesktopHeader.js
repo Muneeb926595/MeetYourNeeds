@@ -33,6 +33,41 @@ const Header = () => {
         >
           <p>Home</p>
         </NavLink>
+        <NavLink
+          to="/face"
+          activeClassName={classes.activeNavLink}
+          className={classes.NavigationLink}
+        >
+          <p>Face</p>
+        </NavLink>
+        <NavLink
+          to="/lip"
+          activeClassName={classes.activeNavLink}
+          className={classes.NavigationLink}
+        >
+          <p>Lip</p>
+        </NavLink>
+        <NavLink
+          to="/eye"
+          activeClassName={classes.activeNavLink}
+          className={classes.NavigationLink}
+        >
+          <p>Eye</p>
+        </NavLink>
+        <NavLink
+          to="/skin-care"
+          activeClassName={classes.activeNavLink}
+          className={classes.NavigationLink}
+        >
+          <p>Skincare</p>
+        </NavLink>
+        <NavLink
+          to="/other"
+          activeClassName={classes.activeNavLink}
+          className={classes.NavigationLink}
+        >
+          <p>Other</p>
+        </NavLink>
         <div
           className={classes.NavigationLink}
           onClick={() => {

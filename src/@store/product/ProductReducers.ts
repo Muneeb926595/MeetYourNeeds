@@ -49,6 +49,24 @@ const ProductReducer = (
       };
     }
 
+    case ProductActionTypes.GET_PRODUCTS_BY_CATEGORY_START: {
+      return { ...state, loading: true };
+    }
+    case ProductActionTypes.GET_PRODUCTS_BY_CATEGORY_SUCCESS: {
+      return {
+        ...state,
+        products: action.payload,
+        loading: false,
+      };
+    }
+    case ProductActionTypes.GET_PRODUCTS_BY_CATEGORY_FAIL: {
+      return {
+        ...state,
+        products: action.payload,
+        loading: false,
+      };
+    }
+
     default: {
       return state;
     }
