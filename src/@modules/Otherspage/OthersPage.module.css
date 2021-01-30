@@ -1,0 +1,7 @@
+.otherspageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}

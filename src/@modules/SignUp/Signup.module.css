@@ -14,7 +14,7 @@
   flex-direction: column;
 }
 .signup__appNameContainer {
-  font-size: 44px;
+  font-size: 40px;
   font-weight: 700;
   color: #007aff;
 }
@@ -101,7 +101,7 @@
 
 @media (max-width: 450px) {
   .signup {
-    height: 100vh;
+    min-height: 100vh;
     box-shadow: 0 0 20px #dbdbdb;
   }
 }

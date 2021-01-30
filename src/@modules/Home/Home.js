@@ -11,7 +11,6 @@ const Home = () => {
   const productsData = useSelector(
     ({ MeedYourNeeds }) => MeedYourNeeds.product.products
   );
-  console.log(productsData);
   const productsLoading = useSelector(
     ({ MeedYourNeeds }) => MeedYourNeeds.product.loading
   );

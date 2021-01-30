@@ -1,4 +1,8 @@
-import { getAddProductUrl, getProductsUrl } from "../../@api/Endpoint";
+import {
+  getAddProductUrl,
+  getProductsUrl,
+  getProductsByCategoryUrl,
+} from "../../@api/Endpoint";
 import { ProductActionTypes } from "../redux/actionTypes";
 import { axiosInstance as axios } from "../../@api/axios";
 import { Product } from "../../@models/Product";
@@ -82,6 +86,44 @@ const getProductsFail = (dispatch, errorMessage) => {
 const getProductsSuccess = (dispatch, data) => {
   dispatch({
     type: ProductActionTypes.GET_PRODUCTS_SUCCESS,
+    payload: data,
+  });
+};
+
+export const getProductsByCategory = (category) => {
+  return (dispatch) => {
+    dispatch({
+      type: ProductActionTypes.GET_PRODUCTS_BY_CATEGORY_START,
+    });
+    const url = getProductsByCategoryUrl(category);
+    console.log("goiing to call this ", url);
+    axios
+      .get(url)
+      .then((res) => {
+        let { data } = res;
+        if (data) {
+          getProductsByCategorySuccess(dispatch, data);
+        } else {
+          getProductsByCategoryFail(dispatch, "There was an error connection");
+        }
+      })
+      .catch((error) => {
+        getProductsByCategoryFail(dispatch, "There was an error connection2");
+      });
+  };
+};
+const getProductsByCategoryFail = (dispatch, errorMessage) => {
+  console.log(errorMessage);
+  dispatch({
+    type: ProductActionTypes.GET_PRODUCTS_BY_CATEGORY_FAIL,
+    payload: {
+      errorMessage,
+    },
+  });
+};
+const getProductsByCategorySuccess = (dispatch, data) => {
+  dispatch({
+    type: ProductActionTypes.GET_PRODUCTS_BY_CATEGORY_SUCCESS,
     payload: data,
   });
 };

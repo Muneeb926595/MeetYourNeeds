@@ -15,3 +15,6 @@ export const getAddProductUrl = () => {
 export const getProductsUrl = () => {
   return encodeURI("product");
 };
+export const getProductsByCategoryUrl = (category) => {
+  return encodeURI("product/" + category);
+};
