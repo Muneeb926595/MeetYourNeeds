@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import React from "react";
 import { Provider } from "react-redux";
+import React from "react";
 
 import MobileMainScreen from "./@modules/MainScreen/MainScreen";
 import Signup from "./@modules/SignUp/Signup";
