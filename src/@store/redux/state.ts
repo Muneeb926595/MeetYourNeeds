@@ -5,6 +5,7 @@ export {};
 declare global {
   interface AuthState {
     user: User;
+    cart: any[];
     loading?: boolean;
   }
   interface ProductState {

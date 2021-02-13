@@ -16,8 +16,9 @@ import LipPage from "./@modules/LipPage/LipPage";
 import EyePage from "./@modules/Eyepage/EyePage";
 import Skincarepge from "./@modules/SkincarePage/Skincarepge";
 import OthersPage from "./@modules/Otherspage/OthersPage";
+import CartPage from "./@modules/CartPage/CartPage";
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <div className="App">
@@ -35,12 +36,13 @@ function App() {
               <Route exact path="/eye" component={EyePage} />
               <Route exact path="/skin-care" component={Skincarepge} />
               <Route exact path="/other" component={OthersPage} />
+              <Route exact path="/cart" component={CartPage} />
             </Layout>
           </Switch>
         </Router>
       </div>
     </Provider>
   );
-}
+};
 
 export default App;

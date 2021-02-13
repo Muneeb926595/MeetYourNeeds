@@ -42,6 +42,7 @@ function LipPage() {
               return (
                 <ProductCard
                   index={index}
+                  productId={singleProduct._id}
                   productDescription={singleProduct.description}
                   // productImage={
                   //   "http://localhost:3000/api/" + singleProduct.image

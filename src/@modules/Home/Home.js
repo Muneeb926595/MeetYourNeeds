@@ -5,6 +5,7 @@ import { getProducts } from "../../@store/product/ProductActions";
 import Loader from "../../@components/Loader/Loader";
 import classes from "./Home.module.css";
 import ProductCard from "../../@components/ProductCard/ProductCard";
+import { getCart } from "../../@store/auth/AuthActions";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,10 @@ const Home = () => {
   const productsLoading = useSelector(
     ({ MeedYourNeeds }) => MeedYourNeeds.product.loading
   );
+
+  useEffect(() => {
+    dispatch(getCart());
+  }, []);
 
   useEffect(() => {
     dispatch(getProducts());
@@ -42,6 +47,7 @@ const Home = () => {
               return (
                 <ProductCard
                   index={index}
+                  productId={singleProduct._id}
                   productDescription={singleProduct.description}
                   // productImage={
                   //   "http://localhost:3000/api/" + singleProduct.image
