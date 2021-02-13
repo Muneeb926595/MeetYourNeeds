@@ -3,6 +3,9 @@ import { toast } from "react-toastify";
 import {
   getUserByIdUrl,
   loginUserUrl,
+  addToCartUrl,
+  removeFromCartUrl,
+  getCartUrl,
   registerUserUrl,
 } from "../../@api/Endpoint";
 import { axiosInstance as axios } from "../../@api/axios";
@@ -79,7 +82,6 @@ export const submitRegister = (user: User, history) => {
       .post(url, request)
       .then((res) => {
         let { data } = res;
-        console.log(data);
         if (
           data.accessToken &&
           data.accessToken !== "undefined" &&
@@ -159,4 +161,158 @@ const getUserSuccess = (dispatch, data) => {
     type: AuthActionTypes.GET_USER_SUCCESS,
     payload: data,
   });
+};
+
+export const addToCart = (productId) => {
+  return (dispatch) => {
+    dispatch({
+      type: AuthActionTypes.ADD_TO_CART_START,
+    });
+
+    const url = addToCartUrl();
+    const request = {
+      userId: localStorage.getItem("userId"),
+      productId: productId,
+    };
+    axios
+      .post(url, request)
+      .then((res) => {
+        let { data } = res;
+        if (data) {
+          addToCartSuccess(dispatch, data);
+        } else {
+          addToCartFail(dispatch, "There was an error connection");
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+        addToCartFail(dispatch, "There was an error connection2");
+      });
+  };
+};
+const addToCartFail = (dispatch, errorMessage) => {
+  console.log(errorMessage);
+  dispatch({
+    type: AuthActionTypes.ADD_TO_CART_FAIL,
+    payload: {
+      errorMessage,
+    },
+  });
+};
+const addToCartSuccess = (dispatch, data) => {
+  dispatch({
+    type: AuthActionTypes.ADD_TO_CART_SUCCESS,
+    payload: data,
+  });
+};
+
+export const getCart = (productId) => {
+  return (dispatch) => {
+    dispatch({
+      type: AuthActionTypes.GET_CART_START,
+    });
+
+    const url = getCartUrl(localStorage.getItem("userId"));
+    axios
+      .get(url)
+      .then((res) => {
+        let { data } = res;
+        if (data) {
+          getCartSuccess(dispatch, data);
+        } else {
+          getCartFail(dispatch, "There was an error connection");
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+        getCartFail(dispatch, "There was an error connection2");
+      });
+  };
+};
+const getCartFail = (dispatch, errorMessage) => {
+  console.log(errorMessage);
+  dispatch({
+    type: AuthActionTypes.GET_CART_FAIL,
+    payload: {
+      errorMessage,
+    },
+  });
+};
+const getCartSuccess = (dispatch, data) => {
+  dispatch({
+    type: AuthActionTypes.GET_CART_SUCCESS,
+    payload: data,
+  });
+};
+export const removeFromCart = (productId) => {
+  return (dispatch) => {
+    dispatch({
+      type: AuthActionTypes.REMOVE_FROM_CART_START,
+    });
+
+    const url = removeFromCartUrl(localStorage.getItem("userId"), productId);
+    axios
+      .delete(url)
+      .then((res) => {
+        let { data } = res;
+        if (data) {
+          removeFromCartSuccess(dispatch, data);
+        } else {
+          removeFromCartFail(dispatch, "There was an error connection");
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+        removeFromCartFail(dispatch, "There was an error connection2");
+      });
+  };
+};
+const removeFromCartFail = (dispatch, errorMessage) => {
+  console.log(errorMessage);
+  dispatch({
+    type: AuthActionTypes.REMOVE_FROM_CART_FAIL,
+    payload: {
+      errorMessage,
+    },
+  });
+};
+const removeFromCartSuccess = (dispatch, data) => {
+  dispatch({
+    type: AuthActionTypes.REMOVE_FROM_CART_SUCCESS,
+    payload: data,
+  });
+};
+
+export const addToCartLocally = (
+  productId,
+  productTitle,
+  productPrice,
+  productDescription,
+  productImage,
+  productCategory
+) => {
+  return (dispatch) => {
+    dispatch({
+      type: AuthActionTypes.ADD_TO_CART_LOCALLY,
+      payload: {
+        cart: {
+          _id: productId,
+          title: productTitle,
+          price: productPrice,
+          description: productDescription,
+          image: productImage,
+          category: productCategory,
+        },
+      },
+    });
+  };
+};
+
+export const removeFromCartLocally = (productId) => {
+  return (dispatch) => {
+    dispatch({
+      type: AuthActionTypes.REMOVE_FROM_CART_LOCALLY,
+      payload: productId,
+    });
+  };
 };

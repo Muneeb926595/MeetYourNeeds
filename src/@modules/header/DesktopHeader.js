@@ -2,14 +2,18 @@ import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
+import { useSelector } from "react-redux";
 
 import classes from "./DesktopHeader.module.css";
 import CustomeModal from "../../@components/CustomeModal";
 import AddProduct from "../../@components/AddProduct/AddProduct";
+import { ReactComponent as CartIcon } from "../../assets/Images/header/cartIcon.svg";
 
 const Header = () => {
   const history = useHistory();
   const [showModal, setShowModal] = useState(false);
+
+  const cartData = useSelector(({ MeedYourNeeds }) => MeedYourNeeds.auth.cart);
   return (
     <div className={classes.header}>
       <NavLink to="/" className={classes.brandName}>
@@ -68,6 +72,7 @@ const Header = () => {
         >
           <p>Other</p>
         </NavLink>
+
         <div
           className={classes.NavigationLink}
           onClick={() => {
@@ -86,6 +91,10 @@ const Header = () => {
         >
           <p>Logout</p>
         </div>
+        <NavLink to="/cart" className={classes.cartIcon}>
+          <div className={classes.cartNumbering}>{cartData?.length}</div>
+          <CartIcon />
+        </NavLink>
       </div>
 
       <CustomeModal
