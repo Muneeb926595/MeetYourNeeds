@@ -1,0 +1,166 @@
+.checkoutContianer {
+  display: flex;
+  background-color: #ffffff;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  width: 60%;
+  box-shadow: 0px 0px 20px #dbdbdb;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.leftPortion {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+  padding: 40px 32px;
+}
+.verticalSplitLine {
+  height: 100vh;
+  border-left: 1px solid #d9d9d3;
+}
+.horizentalSplitLine {
+  width: 100%;
+  border-top: 1px solid #d9d9d3;
+}
+.rightPortion {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding: 40px 32px;
+}
+.portionTitle {
+  font-weight: 500;
+  color: #000000;
+  font-size: 28px;
+  margin: 0px;
+  margin-bottom: 0.6rem;
+  color: #007aff;
+  font-family: 'Sansita Swashed', cursive;
+}
+.portionSubTitle {
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+}
+.portionData {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.maincontent {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  flex: 1;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-right: 24px;
+}
+.footer {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  margin: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.footerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.paymentTitle {
+  color: #7d7c8b;
+  font-weight: 700;
+  font-size: 18px;
+}
+.paymentMethods {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.paymentMethodCard {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  justify-content: center;
+  border: 1px solid #d9d9d3;
+  transition: 0.2s all ease-in;
+  cursor: pointer;
+}
+.selectedPaymentMethodCard {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0px 0px 16px #dbdbdb;
+  border: 1px solid #007aff;
+  justify-content: center;
+  transition: 0.2s all ease-in;
+  cursor: pointer;
+}
+.selectedPaymentMethodCard > p {
+  color: #007aff;
+}
+.selectedPaymentMethodCard path {
+  fill: #007aff;
+}
+.paymentMethodCard:hover {
+  box-shadow: 0px 0px 16px #dbdbdb;
+}
+.paymentMethodCard > p {
+  margin: 0;
+}
+.paymentMethodCard:hover > p {
+  color: #007aff;
+}
+.paymentIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.paymentMethodCard:hover path {
+  fill: #007aff;
+}
+.cancelButton {
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+  color: #007aff;
+  padding: 10px 0px;
+  border-radius: 6px;
+  border: 1px solid #007aff;
+  flex: 0.45;
+  cursor: pointer;
+  transition: 0.2s all ease-in;
+}
+.cancelButton:hover {
+  border-color: red;
+  color: red;
+}
+.confirmButton {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 0px;
+  border-radius: 6px;
+  background-color: #007aff;
+  color: #ffffff;
+  flex: 0.45;
+  box-shadow: 0px 2px 10px #007aff;
+  transition: 0.2s all ease-in;
+}
+.confirmButton:hover {
+  box-shadow: 0px 2px 24px #007aff;
+}
