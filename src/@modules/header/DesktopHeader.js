@@ -1,27 +1,27 @@
-import { NavLink } from 'react-router-dom'
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import SearchIcon from '@material-ui/icons/Search'
-import { useSelector } from 'react-redux'
+import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import SearchIcon from "@material-ui/icons/Search";
+import { useSelector } from "react-redux";
 
-import classes from './DesktopHeader.module.css'
-import CustomeModal from '../../@components/CustomeModal'
-import AddProduct from '../../@components/AddProduct/AddProduct'
-import { ReactComponent as CartIcon } from '../../assets/Images/header/cartIcon.svg'
-import Checkout from '../Checkout/Checkout'
+import classes from "./DesktopHeader.module.css";
+import CustomeModal from "../../@components/CustomeModal";
+import AddProduct from "../../@components/AddProduct/AddProduct";
+import { ReactComponent as CartIcon } from "../../assets/Images/header/cartIcon.svg";
+import Checkout from "../Checkout/Checkout";
 
 const Header = () => {
-  const history = useHistory()
-  const [showModal, setShowModal] = useState(false)
-  const [showCheckoutModal, setShowCheckoutModal] = useState(false)
+  const history = useHistory();
+  const [showModal, setShowModal] = useState(false);
+  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
 
-  const cartData = useSelector(({ MeedYourNeeds }) => MeedYourNeeds.auth.cart)
+  const cartData = useSelector(({ MeedYourNeeds }) => MeedYourNeeds.auth.cart);
   return (
     <div className={classes.header}>
-      <NavLink to='/' className={classes.brandName}>
+      <NavLink to="/" className={classes.brandName}>
         <p className={classes.header__textLogo}>MeedYourNeeds</p>
       </NavLink>
-      <form className={classes.searchContainer}>
+      {/* <form className={classes.searchContainer}>
         <input
           type='text'
           placeholder='Search'
@@ -30,45 +30,46 @@ const Header = () => {
         <button className={classes.SearchButton}>
           <SearchIcon />
         </button>
-      </form>
+      </form> */}
+      <div></div>
       <div className={classes.NavigationLinks}>
         <NavLink
-          to='/home'
+          to="/home"
           activeClassName={classes.activeNavLink}
           className={classes.NavigationLink}
         >
           <p>Home</p>
         </NavLink>
         <NavLink
-          to='/face'
+          to="/face"
           activeClassName={classes.activeNavLink}
           className={classes.NavigationLink}
         >
           <p>Face</p>
         </NavLink>
         <NavLink
-          to='/lip'
+          to="/lip"
           activeClassName={classes.activeNavLink}
           className={classes.NavigationLink}
         >
           <p>Lip</p>
         </NavLink>
         <NavLink
-          to='/eye'
+          to="/eye"
           activeClassName={classes.activeNavLink}
           className={classes.NavigationLink}
         >
           <p>Eye</p>
         </NavLink>
         <NavLink
-          to='/skin-care'
+          to="/skin-care"
           activeClassName={classes.activeNavLink}
           className={classes.NavigationLink}
         >
           <p>Skincare</p>
         </NavLink>
         <NavLink
-          to='/other'
+          to="/other"
           activeClassName={classes.activeNavLink}
           className={classes.NavigationLink}
         >
@@ -78,7 +79,7 @@ const Header = () => {
         <div
           className={classes.NavigationLink}
           onClick={() => {
-            setShowModal(true)
+            setShowModal(true);
           }}
         >
           <p>Add Product</p>
@@ -86,9 +87,9 @@ const Header = () => {
         <div
           className={classes.NavigationLink}
           onClick={() => {
-            localStorage.removeItem('access_token')
-            localStorage.removeItem('userId')
-            history.push('/login')
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("userId");
+            history.push("/login");
           }}
         >
           <p>Logout</p>
@@ -104,7 +105,7 @@ const Header = () => {
 
       <CustomeModal
         onCloseModal={() => {
-          setShowModal(false)
+          setShowModal(false);
         }}
         showModal={showModal}
       >
@@ -112,13 +113,13 @@ const Header = () => {
       </CustomeModal>
       <CustomeModal
         onCloseModal={() => {
-          setShowCheckoutModal(false)
+          setShowCheckoutModal(false);
         }}
         showModal={showCheckoutModal}
       >
         <Checkout setShowCheckoutModal={setShowCheckoutModal} />
       </CustomeModal>
     </div>
-  )
-}
-export default Header
+  );
+};
+export default Header;
