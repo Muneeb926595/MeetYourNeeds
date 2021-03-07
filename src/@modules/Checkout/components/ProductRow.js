@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import classes from './Productrow.module.css'
@@ -10,15 +10,37 @@ import {
 
 function ProductRow({ productId, productImage, productName, price }) {
   const dispatch = useDispatch()
+  const [ImageHasHttp, setImageHasHttp] = useState(false)
+
+  useEffect(() => {
+    if (productImage && productImage !== 'undefined') {
+      const prefix = productImage.toString().split('/')[0]
+      if (prefix === 'images') {
+        setImageHasHttp(false)
+      } else {
+        setImageHasHttp(true)
+      }
+    }
+  }, [productImage])
+
   const handleRemoveProduct = () => {
     dispatch(removeFromCart(productId))
     dispatch(removeFromCartLocally(productId))
   }
+
+  const formateImageUrl = (url) => {
+    return 'http://localhost:3000/api/' + url
+    // return 'https://meet-your-needs-api.herokuapp.com/api/'  + url
+  }
+
   return (
     <div className={classes.productRowContainer}>
       <div className={classes.productInfo}>
         <div className={classes.productImageContainer}>
-          <img className={classes.productImage} src={productImage} />
+          <img
+            className={classes.productImage}
+            src={ImageHasHttp ? productImage : formateImageUrl(productImage)}
+          />
         </div>
         <div className={classes.productDetails}>
           <p className={classes.productName}>{productName}</p>

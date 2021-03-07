@@ -6,11 +6,13 @@ import {
   addToCartUrl,
   removeFromCartUrl,
   getCartUrl,
+  addOrderUrl,
   registerUserUrl,
 } from '../../@api/Endpoint'
 import { axiosInstance as axios } from '../../@api/axios'
 import { AuthActionTypes } from '../redux/actionTypes'
 import { User } from '../../@models/User'
+import { getProducts } from '../product/ProductActions'
 
 export const submitLogin = (user: User, history) => {
   return (dispatch) => {
@@ -282,6 +284,58 @@ const removeFromCartSuccess = (dispatch, data) => {
     type: AuthActionTypes.REMOVE_FROM_CART_SUCCESS,
     payload: data,
   })
+}
+
+export const addOrder = ({ products, paymentMethod }, setShowCheckoutModal) => {
+  return (dispatch) => {
+    dispatch({
+      type: AuthActionTypes.ADD_ORDER_START,
+    })
+
+    const url = addOrderUrl()
+
+    const request = {
+      userId: localStorage.getItem('userId'),
+      products: products,
+      paymentMethod: paymentMethod.creditCard
+        ? 'creditCard'
+        : paymentMethod.paypal
+        ? 'paypal'
+        : 'cash',
+    }
+
+    axios
+      .post(url, request)
+      .then((res) => {
+        let { data } = res
+        if (data) {
+          addOrderSuccess(dispatch, data, setShowCheckoutModal)
+        } else {
+          addOrderFail(dispatch, 'There was an error connection')
+        }
+      })
+      .catch((error) => {
+        console.log(error.message)
+        addOrderFail(dispatch, 'There was an error connection2')
+      })
+  }
+}
+const addOrderFail = (dispatch, errorMessage) => {
+  console.log(errorMessage)
+  dispatch({
+    type: AuthActionTypes.ADD_ORDER_FAIL,
+    payload: {
+      errorMessage,
+    },
+  })
+}
+const addOrderSuccess = (dispatch, data, setShowCheckoutModal) => {
+  dispatch({
+    type: AuthActionTypes.ADD_ORDER_SUCCESS,
+    payload: data,
+  })
+  dispatch(getProducts())
+  setShowCheckoutModal(false)
 }
 
 export const addToCartLocally = (
