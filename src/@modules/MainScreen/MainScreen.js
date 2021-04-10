@@ -18,7 +18,7 @@ const MainScreen = (props) => {
       <div className={classes.MainScreenContainer}>
         <div className={classes.MainScreen__content}>
           <div className={classes.MainScreen__appNameContainer}>
-            <p className={classes.MainScreen__appName}>MeedYourNeeds</p>
+            <p className={classes.MainScreen__appName}>MeetYourNeeds</p>
           </div>
           <div className={classes.MainScreen__buttonsContainer}>
             <button

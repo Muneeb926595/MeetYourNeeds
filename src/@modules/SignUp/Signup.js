@@ -15,7 +15,7 @@ const Signup = (props) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const userLoading = useSelector(
-    ({ MeedYourNeeds }) => MeedYourNeeds.auth.loading
+    ({ MeetYourNeeds }) => MeetYourNeeds.auth.loading
   );
   const dispatch = useDispatch();
   useEffect(() => {
@@ -32,7 +32,7 @@ const Signup = (props) => {
         <div className={classes.signup}>
           <div className={classes.signup__content}>
             <div className={classes.signup__appNameContainer}>
-              <p className={classes.signup__appName}>MeedYourNeeds</p>
+              <p className={classes.signup__appName}>MeetYourNeeds</p>
             </div>
             <form
               className={classes.signup__signupForm}

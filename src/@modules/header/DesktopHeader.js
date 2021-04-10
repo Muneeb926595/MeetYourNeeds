@@ -15,11 +15,11 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
 
-  const cartData = useSelector(({ MeedYourNeeds }) => MeedYourNeeds.auth.cart);
+  const cartData = useSelector(({ MeetYourNeeds }) => MeetYourNeeds.auth.cart);
   return (
     <div className={classes.header}>
       <NavLink to="/" className={classes.brandName}>
-        <p className={classes.header__textLogo}>MeedYourNeeds</p>
+        <p className={classes.header__textLogo}>MeetYourNeeds</p>
       </NavLink>
       {/* <form className={classes.searchContainer}>
         <input

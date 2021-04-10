@@ -18,7 +18,7 @@ function Checkout({ setShowCheckoutModal }) {
     cash: true,
   });
 
-  const cartData = useSelector(({ MeedYourNeeds }) => MeedYourNeeds.auth.cart);
+  const cartData = useSelector(({ MeetYourNeeds }) => MeetYourNeeds.auth.cart);
 
   useEffect(() => {
     let tempSubtotal = 0;

@@ -1,37 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
-import classes from './Productrow.module.css'
-import { ReactComponent as DeleteIcon } from '../../../assets/Images/deleteIcon.svg'
+import classes from "./Productrow.module.css";
+import { ReactComponent as DeleteIcon } from "../../../assets/Images/deleteIcon.svg";
 import {
   removeFromCart,
   removeFromCartLocally,
-} from '../../../@store/auth/AuthActions'
+} from "../../../@store/auth/AuthActions";
 
 function ProductRow({ productId, productImage, productName, price }) {
-  const dispatch = useDispatch()
-  const [ImageHasHttp, setImageHasHttp] = useState(false)
-
-  useEffect(() => {
-    if (productImage && productImage !== 'undefined') {
-      const prefix = productImage.toString().split('/')[0]
-      if (prefix === 'images') {
-        setImageHasHttp(false)
-      } else {
-        setImageHasHttp(true)
-      }
-    }
-  }, [productImage])
+  const dispatch = useDispatch();
 
   const handleRemoveProduct = () => {
-    dispatch(removeFromCart(productId))
-    dispatch(removeFromCartLocally(productId))
-  }
+    dispatch(removeFromCart(productId));
+    dispatch(removeFromCartLocally(productId));
+  };
 
   const formateImageUrl = (url) => {
-    return 'http://localhost:3000/api/' + url
-    // return 'https://meet-your-needs-api.herokuapp.com/api/'  + url
-  }
+    // return 'http://localhost:3000/api/' + url
+    return "https://meet-your-needs-api.herokuapp.com/api/" + url;
+  };
 
   return (
     <div className={classes.productRowContainer}>
@@ -39,7 +27,7 @@ function ProductRow({ productId, productImage, productName, price }) {
         <div className={classes.productImageContainer}>
           <img
             className={classes.productImage}
-            src={ImageHasHttp ? productImage : formateImageUrl(productImage)}
+            src={formateImageUrl(productImage)}
           />
         </div>
         <div className={classes.productDetails}>
@@ -51,7 +39,7 @@ function ProductRow({ productId, productImage, productName, price }) {
         <DeleteIcon className={classes.deleteIcon} />
       </div>
     </div>
-  )
+  );
 }
 
-export default ProductRow
+export default ProductRow;
