@@ -24,7 +24,7 @@ const ProductCard = ({
   const dispatch = useDispatch();
   const [alreadyAddedToCart, setAlreadyAddedToCart] = useState(false);
 
-  const cartData = useSelector(({ MeedYourNeeds }) => MeedYourNeeds.auth.cart);
+  const cartData = useSelector(({ MeetYourNeeds }) => MeetYourNeeds.auth.cart);
 
   useEffect(() => {
     cartData.map((singleProduct) => {
@@ -89,6 +89,9 @@ const ProductCard = ({
               <div className={classes.productName}>{productTitle}</div>
               <div className={classes.productDescription}>
                 {productDescription}
+              </div>
+              <div className={classes.productDescription}>
+                Call Me At : {phoneNo}
               </div>
               <div className={classes.productPrice}>Rs. {productPrice}</div>
             </div>

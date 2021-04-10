@@ -14,7 +14,7 @@ const Login = (props) => {
   const [password, setPassword] = useState("");
 
   const userLoading = useSelector(
-    ({ MeedYourNeeds }) => MeedYourNeeds.auth.loading
+    ({ MeetYourNeeds }) => MeetYourNeeds.auth.loading
   );
   useEffect(() => {
     if (
@@ -30,7 +30,7 @@ const Login = (props) => {
         <div className={classes.login}>
           <div className={classes.login__content}>
             <div className={classes.login__appNameContainer}>
-              <p className={classes.login__appName}>MeedYourNeeds</p>
+              <p className={classes.login__appName}>MeetYourNeeds</p>
             </div>
             <form
               className={classes.login__loginForm}

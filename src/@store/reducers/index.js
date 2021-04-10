@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 
-import MeedYourNeeds from "../redux/reducer";
+import MeetYourNeeds from "../redux/reducer";
 
 const createReducer = (asyncReducers) =>
   combineReducers({
-    MeedYourNeeds,
+    MeetYourNeeds,
     ...asyncReducers,
   });
 

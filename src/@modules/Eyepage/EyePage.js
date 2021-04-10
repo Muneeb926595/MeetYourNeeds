@@ -9,10 +9,10 @@ import ProductCard from "../../@components/ProductCard/ProductCard";
 function EyePage() {
   const dispatch = useDispatch();
   const productsData = useSelector(
-    ({ MeedYourNeeds }) => MeedYourNeeds.product.products
+    ({ MeetYourNeeds }) => MeetYourNeeds.product.products
   );
   const productsLoading = useSelector(
-    ({ MeedYourNeeds }) => MeedYourNeeds.product.loading
+    ({ MeetYourNeeds }) => MeetYourNeeds.product.loading
   );
 
   useEffect(() => {
