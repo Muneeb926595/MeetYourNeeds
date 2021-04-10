@@ -17,6 +17,7 @@ const AddProduct = ({ setShowModal }) => {
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("Face");
   const [price, setPrice] = useState("");
+  const [phoneNo, setPhoneNo] = useState("");
   const [isDisable, setIsDisable] = useState(true);
 
   useEffect(() => {
@@ -48,7 +49,14 @@ const AddProduct = ({ setShowModal }) => {
   const cancelUploadFile = () => {
     setFile(null);
   };
-  const addPost = async (title, price, description, category, file) => {
+  const addPost = async (
+    title,
+    price,
+    description,
+    category,
+    file,
+    phoneNo
+  ) => {
     if (isImage(file.type)) {
       file = await lighterImage(file);
     }
@@ -60,6 +68,7 @@ const AddProduct = ({ setShowModal }) => {
         description: description,
         imageFile: file,
         category: category,
+        phoneNo: phoneNo,
       })
     );
   };
@@ -94,6 +103,17 @@ const AddProduct = ({ setShowModal }) => {
               setPrice(e.target.value);
             }}
             placeholder="Price ??"
+            className={classes.addPost__textarea}
+            style={{ padding: "10px", paddingLeft: "20px" }}
+          />
+        </div>
+        <div className={classes.addPost__textareaContainer}>
+          <input
+            value={phoneNo}
+            onChange={(e) => {
+              setPhoneNo(e.target.value);
+            }}
+            placeholder="Seller Phone no"
             className={classes.addPost__textarea}
             style={{ padding: "10px", paddingLeft: "20px" }}
           />
@@ -174,7 +194,7 @@ const AddProduct = ({ setShowModal }) => {
               }`}
               onClick={(event) => {
                 event.preventDefault();
-                addPost(title, price, description, category, file);
+                addPost(title, price, description, category, file, phoneNo);
                 setShowModal(false);
               }}
             >
