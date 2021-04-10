@@ -55,6 +55,7 @@ function LipPage() {
                   productTitle={singleProduct.title}
                   productPrice={singleProduct.price}
                   userId={singleProduct.userId}
+                  phoneNo={singleProduct.phoneNo}
                 />
               );
             })}

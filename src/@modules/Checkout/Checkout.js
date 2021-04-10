@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import Backdrop from '@material-ui/core/Backdrop'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from "react";
+import Backdrop from "@material-ui/core/Backdrop";
+import { useDispatch, useSelector } from "react-redux";
 
-import classes from './Checkout.module.css'
-import { ReactComponent as CashIcon } from '../../assets/Images/cashIcon.svg'
-import { ReactComponent as CreditCardIcon } from '../../assets/Images/creditCardIcon.svg'
-import { ReactComponent as PaypalIcon } from '../../assets/Images/paypalIcon.svg'
-import ProductRow from './components/ProductRow'
-import { addOrder } from '../../@store/auth/AuthActions'
+import classes from "./Checkout.module.css";
+import { ReactComponent as CashIcon } from "../../assets/Images/cashIcon.svg";
+import { ReactComponent as CreditCardIcon } from "../../assets/Images/creditCardIcon.svg";
+import { ReactComponent as PaypalIcon } from "../../assets/Images/paypalIcon.svg";
+import ProductRow from "./components/ProductRow";
+import { addOrder } from "../../@store/auth/AuthActions";
 
 function Checkout({ setShowCheckoutModal }) {
-  const dispatch = useDispatch()
-  const [subTotal, setSubtotal] = useState(0)
+  const dispatch = useDispatch();
+  const [subTotal, setSubtotal] = useState(0);
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState({
     creditCard: false,
     paypal: false,
     cash: true,
-  })
+  });
 
-  const cartData = useSelector(({ MeedYourNeeds }) => MeedYourNeeds.auth.cart)
+  const cartData = useSelector(({ MeedYourNeeds }) => MeedYourNeeds.auth.cart);
 
   useEffect(() => {
-    let tempSubtotal = 0
+    let tempSubtotal = 0;
     cartData.map(({ cart }) => {
-      tempSubtotal += parseInt(cart.price)
-    })
-    setSubtotal(tempSubtotal)
-  }, [cartData])
+      tempSubtotal += parseInt(cart.price);
+    });
+    setSubtotal(tempSubtotal);
+  }, [cartData]);
 
   return (
     <Backdrop open={true} className={classes.backdrop}>
@@ -100,7 +100,7 @@ function Checkout({ setShowCheckoutModal }) {
                     }
                   >
                     <PaypalIcon className={classes.paymentIcon} />
-                    <p>Paypal</p>
+                    <p>Easy Paisa</p>
                   </div>
                   <div
                     className={
@@ -138,7 +138,7 @@ function Checkout({ setShowCheckoutModal }) {
                       addOrder(
                         {
                           products: cartData.map(({ cart }) => {
-                            return cart._id
+                            return cart._id;
                           }),
                           paymentMethod: selectedPaymentMethod,
                         },
@@ -155,7 +155,7 @@ function Checkout({ setShowCheckoutModal }) {
         </div>
       </div>
     </Backdrop>
-  )
+  );
 }
 
-export default Checkout
+export default Checkout;

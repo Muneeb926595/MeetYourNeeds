@@ -7,4 +7,5 @@ export interface Product {
   image?: String;
   time?: String;
   category?: String;
+  phoneNo?: String;
 }
