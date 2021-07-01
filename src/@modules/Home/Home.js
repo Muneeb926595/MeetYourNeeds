@@ -49,13 +49,13 @@ const Home = () => {
                   index={index}
                   productId={singleProduct._id}
                   productDescription={singleProduct.description}
-                  // productImage={
-                  //   "http://localhost:3000/api/" + singleProduct.image
-                  // }
                   productImage={
-                    "https://meet-your-needs-api.herokuapp.com/api/" +
-                    singleProduct.image
+                    "http://localhost:3000/api/" + singleProduct.image
                   }
+                  // productImage={
+                  //   "https://meet-your-needs-api.herokuapp.com/api/" +
+                  //   singleProduct.image
+                  // }
                   productCategory={singleProduct.category}
                   productTitle={singleProduct.title}
                   productPrice={singleProduct.price}
